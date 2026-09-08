@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Árabe Salvadoreño — Gastronomía, Tradición y Exclusividad</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #0B131F;
+            --bg-card: #131E2F;
+            --bg-card-hover: #1A283E;
+            --gold-primary: #C5A059;
+            --gold-light: #E0C387;
+            --gold-dark: #9A7736;
+            --text-main: #F4F6F9;
+            --text-muted: #94A3B8;
+            --border-gold: rgba(197, 160, 89, 0.25);
+            --border-light: rgba(255, 255, 255, 0.08);
+            --emerald: #0E3A2F;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Geometric Arabic Pattern Overlay */
+        .pattern-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.03;
+            background-image: radial-gradient(var(--gold-primary) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        /* HEADER / NAVBAR */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(11, 19, 31, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-gold);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-logo i {
+            font-size: 1.8rem;
+            color: var(--gold-primary);
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            letter-spacing: 1.5px;
+            line-height: 1.1;
+        }
+
+        .brand-subtitle {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            color: #fff;
+            padding: 0.6rem 1.4rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.2);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.35);
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem 2rem;
+            background: linear-gradient(180deg, rgba(11, 19, 31, 0.4) 0%, rgba(11, 19, 31, 0.9) 80%, #0B131F 100%),
+                        url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-light);
+            padding: 0.4rem 1.2rem;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            border-radius: 50px;
+            background: rgba(197, 160, 89, 0.1);
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #FFF;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .hero h1 span {
+            color: var(--gold-primary);
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-light);
+            padding: 0.6rem 1.4rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: rgba(197, 160, 89, 0.15);
+            color: #FFF;
+        }
+
+        /* SECTION HEADINGS */
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 3.5rem auto;
+        }
+
+        .section-subtitle {
+            color: var(--gold-primary);
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.25rem;
+            color: #FFF;
+            margin-bottom: 1rem;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--gold-primary);
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-divider::after {
+            content: '◆';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--gold-primary);
+            background: var(--bg-dark);
+            padding: 0 6px;
+            font-size: 0.6rem;
+        }
+
+        /* MENU SECTION */
+        .menu-section {
+            padding: 6rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Category Filter Tabs */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .tab-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            color: var(--text-muted);
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background: var(--gold-primary);
+            color: #0B131F;
+            border-color: var(--gold-primary);
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+        }
+
+        /* Search Bar */
+        .search-box {
+            max-width: 450px;
+            margin: 0 auto 3rem auto;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.8rem 1.2rem 0.8rem 2.8rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 30px;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-box input:focus {
+            border-color: var(--gold-light);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 1.1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold-primary);
+        }
+
+        /* Menu Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            background: var(--bg-card-hover);
+        }
+
+        .menu-card-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .menu-card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .menu-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .item-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: #FFF;
+            font-weight: 600;
+        }
+
+        .item-price {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--gold-primary);
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .item-desc {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.5;
+            margin-bottom: 1.2rem;
+            flex-grow: 1;
+        }
+
+        .item-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.05);
+            color: var(--text-muted);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .tag.special {
+            background: rgba(197, 160, 89, 0.15);
+            color: var(--gold-light);
+            border-color: var(--border-gold);
+        }
+
+        /* ABOUT / HISTORY SECTION */
+        .about-section {
+            background: #080E17;
+            padding: 6rem 2rem;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            position: relative;
+        }
+
+        .about-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            color: #FFF;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        .timeline-badges {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .badge-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .badge-number {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--gold-primary);
+            font-weight: 700;
+            display: block;
+        }
+
+        .badge-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .about-gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+            transition: transform 0.3s ease;
+        }
+
+        .about-gallery img:hover {
+            transform: scale(1.03);
+        }
+
+        /* AMENITIES SECTION */
+        .amenities-section {
+            padding: 6rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .amenity-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            padding: 2.5rem 1.8rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .amenity-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-5px);
+            background: var(--bg-card-hover);
+        }
+
+        .amenity-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(197, 160, 89, 0.1);
+            border: 1px solid var(--border-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            color: var(--gold-primary);
+            font-size: 1.5rem;
+        }
+
+        .amenity-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            color: #FFF;
+            margin-bottom: 0.8rem;
+        }
+
+        .amenity-card p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        /* RESERVATIONS & LOCATION SECTION */
+        .contact-section {
+            background: #080E17;
+            padding: 6rem 2rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .contact-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(197, 160, 89, 0.1);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-primary);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .info-text h4 {
+            font-family: var(--font-heading);
+            color: #FFF;
+            font-size: 1.05rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .info-text p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .reservation-form {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            padding: 2.5rem;
+            border-radius: 12px;
+        }
+
+        .reservation-form h3 {
+            font-family: var(--font-heading);
+            color: #FFF;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.4rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(11, 19, 31, 0.6);
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            color: #FFF;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--gold-primary);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #05090F;
+            border-top: 1px solid var(--border-light);
+            padding: 3rem 2rem 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .footer-socials a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            color: var(--gold-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-socials a:hover {
+            background: var(--gold-primary);
+            color: #0B131F;
+            transform: translateY(-3px);
+        }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border-light);
+            padding-top: 1.5rem;
+            width: 100%;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 992px) {
+            .about-container, .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none; /* Can be toggled with JS in mobile */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="pattern-overlay"></div>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="brand-logo">
+                <i class="fa-solid fa-star-and-crescent"></i>
+                <div class="brand-text">
+                    <span class="brand-title">CLUB ÁRABE</span>
+                    <span class="brand-subtitle">SALVADOREÑO</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#menu">Menú Gastronómico</a></li>
+                <li><a href="#historia">Nuestra Historia</a></li>
+                <li><a href="#instalaciones">Instalaciones</a></li>
+                <li><a href="#contacto">Reservaciones</a></li>
+            </ul>
+            <a href="#contacto" class="btn-gold">Reservar Mesa</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Tradición & Culinary Excellence</span>
+            <h1>Sabores Ancestrales en un <span>Entorno Exclusivo</span></h1>
+            <p>Descubra la auténtica gastronomía medioriental en el corazón de la Colonia Escalón. Una fusión de herencia, alta cocina y hospitalidad inigualable.</p>
+            <div class="hero-btns">
+                <a href="#menu" class="btn-gold"><i class="fa-solid fa-utensils"></i> Explorar Menú</a>
+                <a href="#historia" class="btn-outline">Conocer El Club</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU SECTION -->
+    <section id="menu" class="menu-section">
+        <div class="section-header">
+            <span class="section-subtitle">Experiencia Culinaria</span>
+            <h2 class="section-title">Menú a la Carta</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <!-- Search Box -->
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" placeholder="Buscar platillo (ej. Kibbeh, Hummus, Cordero)..." onkeyup="filterMenu()">
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="category-tabs">
+            <button class="tab-btn active" onclick="filterCategory('all')"><i class="fa-solid fa-border-all"></i> Todos</button>
+            <button class="tab-btn" onclick="filterCategory('entradas')"><i class="fa-solid fa-bowl-food"></i> Entradas & Mezze</button>
+            <button class="tab-btn" onclick="filterCategory('fuertes')"><i class="fa-solid fa-drumstick-bite"></i> Platos Fuertes</button>
+            <button class="tab-btn" onclick="filterCategory('postres')"><i class="fa-solid fa-cookie"></i> Postres & Bebidas</button>
+        </div>
+
+        <!-- Menu Grid -->
+        <div class="menu-grid" id="menuGrid">
+            
+            <!-- Entradas -->
+            <div class="menu-card" data-category="entradas">
+                <img src="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?q=80&w=600&auto=format&fit=crop" alt="Hummus Tradicional" class="menu-card-img">
+                <div class="menu-card-body">
+                    <div class="menu-card-header">
+                        <h3 class="item-title">Hummus Bil Tahine</h3>
+                        <span class="item-price">$8.50</span>
+                    </div>
+                    <p class="item-desc">Crema suave de garbanzos seleccionados con pasta de sésamo (tahine), aceite de oliva virgen extra y toque de limón. Acompañado de pan pita caliente.</p>
+                    <div class="item-tags">
+                        <span class="tag special"><i class="fa-solid fa-star"></i> Favorito</span>
+                        <span class="tag">Vegetariano</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="entradas">
+                <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?q=80&w=600&auto=format&fit=crop" alt="Kibbeh Frito" class="menu-card-img">
+                <div class="menu-card-body">
+                    <div class="menu-card-header">
+                        <h3 class="item-title">Kibbeh Frito (4 pcs)</h3>
+                        <span class="item-price">$10.00</span>
+                    </div>
+                    <p class="item-desc">Croquetas artesanalmente moldeadas de trigo burgol y carne magra, rellenas de carne sazonada con especias árabes y piñones tostados.</p>
+                    <div class="item-tags">
+                        <span class="tag special"><i class="fa-solid fa-fire"></i> Tradicional</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="entradas">
+                <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=600&auto=format&fit=crop" alt="Ensalada Tabouleh" class="menu-card-img">
+                <div class="menu-card-body">
+                    <div class="menu-card-header">
+                        <h3 class="item-title">Ensalada Tabouleh</h3>
+                        <span class="item-price">$7.50</span>
+                    </div>
+                    <p class="item-desc">Fresca combinación de perejil finamente picado, tomate, menta fresca, trigo burgol, cebolla, aderezado con limón y aceite de oliva.</p>
+                    <div class="item-tags">
+                        <span class="tag">Saludable</span>
+                        <span class="tag">Vegetariano</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Platos Fuertes -->
+            <div class="menu-card" data-category="fuertes">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600&auto=format&fit=crop" alt="Mix Grill Árabe" class="menu-card-img">
+                <div class="menu-card-body">
+                    <div class="menu-card-header">
+                        <h3 class="item-title">Parrillada Mixta Árabe</h3>
+                        <span class="item-price">$24.00</span>
+                    </div>
+                    <p class="item-desc">Brochetas marinadas al carbón: Kafta de res, Shish Taouk de pollo y Kebab de cordero. Servido con arroz con fideos, cebollas asadas y salsa de ajo.</p>
+                    <div class="item-tags">
+                        <span class="tag special"><i class="fa-solid fa-crown"></i> Especialidad</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="fuertes">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=600&auto=format&fit=crop" alt="Cordero al Horno" class="menu-card-img">
+                <div class="menu-card-body">
+                    <div class="menu-card-header">
+                        <h3 class="item-title">Cordero Especial de la Casa</h3>
+                        <span class="item-price">$22.50</span>
+                    </div>
+                    <p class="item-desc">Pierna de cordero horneada lentamente por 8 horas con especias orientales, servida sobre una cama de arroz basmati perfumado con frutos secos.</p>
+                    <div class="item-tags">
+                        <span class="tag special">Gourmet</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="fuertes">
+                <img src="https://images.unsplash.com/photo-1561651823-34feb02250e4?q=80&w=600&auto=format&fit=crop" alt="Shawarma Platter" class="menu-card-img">
+                <div class="menu-card-body">
+                    <div class="menu-card-header">
+                        <h3 class="item-title">Plato Shawarma Mixto</h3>
+                        <span class="item-price">$16.00</span>
+                    </div>
+                    <p class="item-desc">Finas lonjas de res y pollo marinadas con cardamomo y comino, servidas con papas sazonadas, ensalada, pan pita y salsa tahine o ajo.</p>
+                    <div class="item-tags">
+                        <span class="tag">Popular</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Postres & Bebidas -->
+            <div class="menu-card" data-category="postres">
+                <img src="https://images.unsplash.com/photo-1519676867240-f03562e64548?q=80&w=600&auto=format&fit=crop" alt="Baklava" class="menu-card-img">
+                <div class="menu-card-body">
+                    <div class="menu-card-header">
+                        <h3 class="item-title">Baklava Surtido</h3>
+                        <span class="item-price">$6.50</span>
+                    </div>
+                    <p class="item-desc">Capas crujientes de masa filo bañadas en almíbar de azahar y rellenas de pistachos finamente picados y nueces tostadas.</p>
+                    <div class="item-tags">
+                        <span class="tag special">Clásico</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="postres">
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop" alt="Café Árabe con Cardamomo" class="menu-card-img">
+                <div class="menu-card-body">
+                    <div class="menu-card-header">
+                        <h3 class="item-title">Café Árabe Tradicional</h3>
+                        <span class="item-price">$3.50</span>
+                    </div>
+                    <p class="item-desc">Café de grano infusionado con cardamomo verde en cafetera de cobre tradicional (Rakweh). Aromático, intenso y servido sin filtrar.</p>
+                    <div class="item-tags">
+                        <span class="tag">Tradicional</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="historia" class="about-section">
+        <div class="about-container">
+            <div class="about-text">
+                <span class="section-subtitle">Nuestra Herencia</span>
+                <h2>Más de 80 Años de Legado y Convivencia</h2>
+                <p>Desde sus orígenes en los años cuarenta como el histórico <em>Club Palestino</em>, nuestra institución ha sido el punto de encuentro por excelencia de la comunidad árabe-salvadoreña en San Salvador.</p>
+                <p>Ubicados en lo alto de la prestigiada Colonia Escalón, fusionamos las ricas tradiciones del Medio Oriente con la hospitalidad y dinamismo de El Salvador, creando un espacio de prestigio, cultura y convivencia familiar.</p>
+                
+                <div class="timeline-badges">
+                    <div class="badge-box">
+                        <span class="badge-number">1940+</span>
+                        <span class="badge-label">Año de Fundación</span>
+                    </div>
+                    <div class="badge-box">
+                        <span class="badge-number">100%</span>
+                        <span class="badge-label">Autenticidad</span>
+                    </div>
+                    <div class="badge-box">
+                        <span class="badge-number">Col. Escalón</span>
+                        <span class="badge-label">Ubicación Exclusiva</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-gallery">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=600&auto=format&fit=crop" alt="Ambiente del Club">
+                <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=600&auto=format&fit=crop" alt="Restaurante Marhaba">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=600&auto=format&fit=crop" alt="Eventos en Salón Belén">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop" alt="Áreas Deportivas">
+            </div>
+        </div>
+    </section>
+
+    <!-- AMENITIES / SERVICES -->
+    <section id="instalaciones" class="amenities-section">
+        <div class="section-header">
+            <span class="section-subtitle">Exclusividad & Confort</span>
+            <h2 class="section-title">Instalaciones y Servicios</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="amenities-grid">
+            <div class="amenity-card">
+                <div class="amenity-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+                <h3>Salones Belén y Alhambra</h3>
+                <p>Elegantes salones con capacidad para grandes eventos, bodas, banquetes y conferencias corporativas con servicio de catering integral.</p>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon"><i class="fa-solid fa-martini-glass-citrus"></i></div>
+                <h3>Bar Marhaba</h3>
+                <p>Un ambiente acogedor para disfrutar de coctelería internacional, bebidas selectas y momentos inolvidables de esparcimiento.</p>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon"><i class="fa-solid fa-dumbbell"></i></div>
+                <h3>Gimnasio & Deportes</h3>
+                <p>Canchas de Tennis, Squash, Fútbol y Básquetbol complementadas con un gimnasio moderno de uso exclusivo para socios.</p>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon"><i class="fa-solid fa-users"></i></div>
+                <h3>Membresías Exclusivas</h3>
+                <p>Programas de membresía diseñados para familias salvadoreñas y extranjeras que buscan un entorno seguro y sofisticado.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESERVATIONS & CONTACT -->
+    <section id="contacto" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <span class="section-subtitle">Visítenos o Contáctenos</span>
+                <h2 style="font-family: var(--font-heading); font-size: 2rem; color: #fff; margin-bottom: 2rem;">Reserva Tu Experiencia</h2>
+                
+                <div class="info-item">
+                    <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="info-text">
+                        <h4>Ubicación</h4>
+                        <p>11 Calle Poniente y 99 Av. Norte, Colonia Escalón, San Salvador, El Salvador.</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                    <div class="info-text">
+                        <h4>Teléfonos & WhatsApp</h4>
+                        <p>Tel: (503) 2510-0700 | WhatsApp: (503) 7802-0076</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="info-text">
+                        <h4>Correo Electrónico</h4>
+                        <p>membresias@clubarabesv.com</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+                    <div class="info-text">
+                        <h4>Horario de Atención</h4>
+                        <p>Martes a Domingo: 11:30 AM – 10:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reservation-form">
+                <h3>Reserva de Mesa</h3>
+                <form onsubmit="event.preventDefault(); alert('¡Gracias! Su solicitud de reservación ha sido enviada. El club se pondrá en contacto a la brevedad.');">
+                    <div class="form-group">
+                        <label>Nombre Completo</label>
+                        <input type="text" class="form-control" placeholder="Ej. Roberto Simán" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Teléfono</label>
+                            <input type="tel" class="form-control" placeholder="7000-0000" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Número de Personas</label>
+                            <input type="number" class="form-control" min="1" max="20" value="2" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Fecha</label>
+                            <input type="date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Hora</label>
+                            <input type="time" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Notas Especiales / Solicitudes</label>
+                        <textarea class="form-control" rows="3" placeholder="Ej. Celebración de aniversario, mesa cerca del jardín..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-gold" style="width: 100%; padding: 0.9rem; margin-top: 0.5rem;">Confirmar Solicitud</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <a href="#" class="brand-logo">
+                <i class="fa-solid fa-star-and-crescent"></i>
+                <div class="brand-text">
+                    <span class="brand-title">CLUB ÁRABE</span>
+                    <span class="brand-subtitle">SALVADOREÑO</span>
+                </div>
+            </a>
+            <div class="footer-socials">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <div class="footer-copy">
+                &copy; 2026 Club Árabe Salvadoreño. Todos los derechos reservados. Rediseño web conceptual.
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        // Filtering Menu by Category
+        function filterCategory(category) {
+            const cards = document.querySelectorAll('.menu-card');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Live Search Filter
+        function filterMenu() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.menu-card');
+
+            cards.forEach(card => {
+                const title = card.querySelector('.item-title').innerText.toLowerCase();
+                const desc = card.querySelector('.item-desc').innerText.toLowerCase();
+
+                if (title.includes(input) || desc.includes(input)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
