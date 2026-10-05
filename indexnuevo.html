@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Árabe Salvadoreño | Gastronomía árabe en la Colonia Escalón</title>
+    <meta name="description" content="Menú de cocina árabe, instalaciones, ubicación y contacto del Club Árabe Salvadoreño, en la Colonia Escalón, San Salvador.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <a class="skip-link" href="#menu">Saltar al contenido</a>
+
+    <!-- ENCABEZADO -->
+    <header class="site-header tone-dark">
+        <div class="site-header__bar">
+            <a class="brand" href="#inicio">
+                <span class="brand__mark" aria-hidden="true"></span>
+                Club Árabe Salvadoreño
+            </a>
+            <nav class="site-nav" aria-label="Principal">
+                <ul>
+                    <li><a href="#menu">Menú</a></li>
+                    <li><a href="#historia">Historia</a></li>
+                    <li><a href="#instalaciones">Instalaciones</a></li>
+                    <li><a href="#contacto">Contáctenos</a></li>
+                </ul>
+            </nav>
+            <a class="btn" href="#contacto">Reservar mesa</a>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- INICIO -->
+        <section id="inicio" class="section hero tone-dark">
+            <div class="split">
+                <div class="hero__text">
+                    <h1>Cocina árabe y tradición en el corazón de Escalón</h1>
+                    <p class="lede">Gastronomía del Medio Oriente, salones para eventos y áreas deportivas en un club con más de 80 años de historia.</p>
+                    <div class="actions">
+                        <a class="btn" href="#menu">Ver menú</a>
+                        <a class="btn btn--ghost" href="#historia">Conocer el club</a>
+                    </div>
+                </div>
+                <figure class="hero__media">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1000&auto=format&fit=crop" alt="Cordero horneado con arroz y especias, servido en el club">
+                </figure>
+                <dl class="hero__facts">
+                    <div>
+                        <dt>Ubicación</dt>
+                        <dd>Colonia Escalón, San Salvador</dd>
+                    </div>
+                    <div>
+                        <dt>Horario</dt>
+                        <dd>Martes a domingo, 11:30 a. m. – 10:00 p. m.</dd>
+                    </div>
+                    <div>
+                        <dt>Teléfono</dt>
+                        <dd>(503) 2510-0700</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- MENÚ -->
+        <section id="menu" class="section tone-light">
+            <div class="split menu__head">
+                <div class="section-head menu__intro">
+                    <h2>Menú a la carta</h2>
+                    <p>Entradas, platos fuertes y postres de la cocina árabe tradicional, preparados cada día en el club.</p>
+                </div>
+
+                <div class="menu__controls">
+                    <div class="search">
+                        <label class="visually-hidden" for="menu-search">Buscar platillo</label>
+                        <input type="search" id="menu-search" placeholder="Buscar platillo: kibbeh, hummus, cordero" autocomplete="off">
+                    </div>
+                    <div class="tabs" role="group" aria-label="Categorías del menú">
+                        <button type="button" class="tab" data-filter="all" aria-pressed="true">Todos</button>
+                        <button type="button" class="tab" data-filter="entradas" aria-pressed="false">Entradas y mezze</button>
+                        <button type="button" class="tab" data-filter="fuertes" aria-pressed="false">Platos fuertes</button>
+                        <button type="button" class="tab" data-filter="postres" aria-pressed="false">Postres y bebidas</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu__grid" id="menu-grid">
+
+                <!-- Entradas -->
+                <article class="menu-item" data-category="entradas">
+                    <img class="menu-item__img" src="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?q=80&w=600&auto=format&fit=crop" alt="Hummus tradicional" loading="lazy">
+                    <div class="menu-item__body">
+                        <h3 class="menu-item__title">Hummus Bil Tahine</h3>
+                        <p class="menu-item__price">$8.50</p>
+                        <p class="menu-item__desc">Crema suave de garbanzos seleccionados con pasta de sésamo (tahine), aceite de oliva virgen extra y toque de limón. Acompañado de pan pita caliente.</p>
+                        <ul class="tags">
+                            <li class="tag tag--accent">Favorito</li>
+                            <li class="tag">Vegetariano</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="menu-item" data-category="entradas">
+                    <img class="menu-item__img" src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?q=80&w=600&auto=format&fit=crop" alt="Kibbeh frito" loading="lazy">
+                    <div class="menu-item__body">
+                        <h3 class="menu-item__title">Kibbeh Frito (4 pcs)</h3>
+                        <p class="menu-item__price">$10.00</p>
+                        <p class="menu-item__desc">Croquetas artesanalmente moldeadas de trigo burgol y carne magra, rellenas de carne sazonada con especias árabes y piñones tostados.</p>
+                        <ul class="tags">
+                            <li class="tag tag--accent">Tradicional</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="menu-item" data-category="entradas">
+                    <img class="menu-item__img" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=600&auto=format&fit=crop" alt="Ensalada tabouleh" loading="lazy">
+                    <div class="menu-item__body">
+                        <h3 class="menu-item__title">Ensalada Tabouleh</h3>
+                        <p class="menu-item__price">$7.50</p>
+                        <p class="menu-item__desc">Fresca combinación de perejil finamente picado, tomate, menta fresca, trigo burgol, cebolla, aderezado con limón y aceite de oliva.</p>
+                        <ul class="tags">
+                            <li class="tag">Saludable</li>
+                            <li class="tag">Vegetariano</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Platos fuertes -->
+                <article class="menu-item" data-category="fuertes">
+                    <img class="menu-item__img" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600&auto=format&fit=crop" alt="Parrillada mixta árabe" loading="lazy">
+                    <div class="menu-item__body">
+                        <h3 class="menu-item__title">Parrillada Mixta Árabe</h3>
+                        <p class="menu-item__price">$24.00</p>
+                        <p class="menu-item__desc">Brochetas marinadas al carbón: Kafta de res, Shish Taouk de pollo y Kebab de cordero. Servido con arroz con fideos, cebollas asadas y salsa de ajo.</p>
+                        <ul class="tags">
+                            <li class="tag tag--accent">Especialidad</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="menu-item" data-category="fuertes">
+                    <img class="menu-item__img" src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=600&auto=format&fit=crop" alt="Cordero al horno" loading="lazy">
+                    <div class="menu-item__body">
+                        <h3 class="menu-item__title">Cordero Especial de la Casa</h3>
+                        <p class="menu-item__price">$22.50</p>
+                        <p class="menu-item__desc">Pierna de cordero horneada lentamente por 8 horas con especias orientales, servida sobre una cama de arroz basmati perfumado con frutos secos.</p>
+                        <ul class="tags">
+                            <li class="tag tag--accent">Gourmet</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="menu-item" data-category="fuertes">
+                    <img class="menu-item__img" src="https://images.unsplash.com/photo-1561651823-34feb02250e4?q=80&w=600&auto=format&fit=crop" alt="Plato de shawarma mixto" loading="lazy">
+                    <div class="menu-item__body">
+                        <h3 class="menu-item__title">Plato Shawarma Mixto</h3>
+                        <p class="menu-item__price">$16.00</p>
+                        <p class="menu-item__desc">Finas lonjas de res y pollo marinadas con cardamomo y comino, servidas con papas sazonadas, ensalada, pan pita y salsa tahine o ajo.</p>
+                        <ul class="tags">
+                            <li class="tag">Popular</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Postres y bebidas -->
+                <article class="menu-item" data-category="postres">
+                    <img class="menu-item__img" src="https://images.unsplash.com/photo-1519676867240-f03562e64548?q=80&w=600&auto=format&fit=crop" alt="Baklava surtido" loading="lazy">
+                    <div class="menu-item__body">
+                        <h3 class="menu-item__title">Baklava Surtido</h3>
+                        <p class="menu-item__price">$6.50</p>
+                        <p class="menu-item__desc">Capas crujientes de masa filo bañadas en almíbar de azahar y rellenas de pistachos finamente picados y nueces tostadas.</p>
+                        <ul class="tags">
+                            <li class="tag tag--accent">Clásico</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="menu-item" data-category="postres">
+                    <img class="menu-item__img" src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop" alt="Café árabe con cardamomo" loading="lazy">
+                    <div class="menu-item__body">
+                        <h3 class="menu-item__title">Café Árabe Tradicional</h3>
+                        <p class="menu-item__price">$3.50</p>
+                        <p class="menu-item__desc">Café de grano infusionado con cardamomo verde en cafetera de cobre tradicional (Rakweh). Aromático, intenso y servido sin filtrar.</p>
+                        <ul class="tags">
+                            <li class="tag">Tradicional</li>
+                        </ul>
+                    </div>
+                </article>
+
+            </div>
+
+            <p class="menu__empty" id="menu-empty" role="status" hidden>No encontramos platillos con esa búsqueda. Pruebe con otro nombre o elija la categoría Todos.</p>
+        </section>
+
+        <!-- HISTORIA -->
+        <section id="historia" class="section tone-emerald">
+            <div class="split">
+                <div class="about__text">
+                    <h2>Más de 80 años de legado y convivencia</h2>
+                    <p>Desde sus orígenes en los años cuarenta como el histórico <em>Club Palestino</em>, nuestra institución ha sido el punto de encuentro por excelencia de la comunidad árabe-salvadoreña en San Salvador.</p>
+                    <p>Ubicados en lo alto de la prestigiada Colonia Escalón, fusionamos las ricas tradiciones del Medio Oriente con la hospitalidad y el dinamismo de El Salvador, creando un espacio de cultura y convivencia familiar.</p>
+                    <dl class="facts">
+                        <div>
+                            <dt>Fundación</dt>
+                            <dd>Años cuarenta</dd>
+                        </div>
+                        <div>
+                            <dt>Ubicación</dt>
+                            <dd>Colonia Escalón</dd>
+                        </div>
+                    </dl>
+                </div>
+                <div class="about__gallery">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=600&auto=format&fit=crop" alt="Ambiente del club" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=600&auto=format&fit=crop" alt="Restaurante Marhaba" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=600&auto=format&fit=crop" alt="Eventos en el Salón Belén" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop" alt="Áreas deportivas" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTALACIONES -->
+        <section id="instalaciones" class="section tone-light">
+            <div class="split">
+                <div class="section-head amenities__intro">
+                    <h2>Instalaciones y servicios</h2>
+                    <p>Espacios para celebrar, compartir y practicar deporte, pensados para los socios y sus familias.</p>
+                </div>
+                <ul class="amenities__list">
+                    <li class="amenity">
+                        <h3>Salones Belén y Alhambra</h3>
+                        <p>Elegantes salones con capacidad para grandes eventos, bodas, banquetes y conferencias corporativas con servicio de catering integral.</p>
+                    </li>
+                    <li class="amenity">
+                        <h3>Bar Marhaba</h3>
+                        <p>Un ambiente acogedor para disfrutar de coctelería internacional, bebidas selectas y momentos de esparcimiento.</p>
+                    </li>
+                    <li class="amenity">
+                        <h3>Gimnasio y deportes</h3>
+                        <p>Canchas de tenis, squash, fútbol y básquetbol, y un gimnasio moderno de uso exclusivo para socios.</p>
+                    </li>
+                    <li class="amenity">
+                        <h3>Membresías</h3>
+                        <p>Programas de membresía para familias salvadoreñas y extranjeras que buscan un entorno seguro y cuidado.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CONTÁCTENOS -->
+        <section id="contacto" class="section tone-dark">
+            <div class="split">
+                <div class="contact__info">
+                    <div class="section-head">
+                        <h2>Contáctenos</h2>
+                        <p>Reserve una mesa o consúltenos por membresías y eventos en nuestros salones.</p>
+                    </div>
+                    <dl class="contact-list">
+                        <div>
+                            <dt>Ubicación</dt>
+                            <dd>11 Calle Poniente y 99 Av. Norte, Colonia Escalón, San Salvador, El Salvador.</dd>
+                        </div>
+                        <div>
+                            <dt>Teléfono</dt>
+                            <dd><a href="tel:+50325100700">(503) 2510-0700</a></dd>
+                        </div>
+                        <div>
+                            <dt>WhatsApp</dt>
+                            <dd><a href="https://wa.me/50378020076">(503) 7802-0076</a></dd>
+                        </div>
+                        <div>
+                            <dt>Correo</dt>
+                            <dd><a href="mailto:membresias@clubarabesv.com">membresias@clubarabesv.com</a></dd>
+                        </div>
+                        <div>
+                            <dt>Horario</dt>
+                            <dd>Martes a domingo, 11:30 a. m. – 10:00 p. m.</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <form class="reservation tone-light" id="reservation-form">
+                    <h3>Reserva de mesa</h3>
+
+                    <div class="field field--wide">
+                        <label for="res-nombre">Nombre completo</label>
+                        <input class="control" type="text" id="res-nombre" name="nombre" autocomplete="name" placeholder="Nombre y apellido" required>
+                    </div>
+                    <div class="field">
+                        <label for="res-telefono">Teléfono</label>
+                        <input class="control" type="tel" id="res-telefono" name="telefono" autocomplete="tel" placeholder="7000-0000" required>
+                    </div>
+                    <div class="field">
+                        <label for="res-personas">Número de personas</label>
+                        <input class="control" type="number" id="res-personas" name="personas" min="1" max="20" value="2" required>
+                    </div>
+                    <div class="field">
+                        <label for="res-fecha">Fecha</label>
+                        <input class="control" type="date" id="res-fecha" name="fecha" required>
+                    </div>
+                    <div class="field">
+                        <label for="res-hora">Hora</label>
+                        <input class="control" type="time" id="res-hora" name="hora" required>
+                    </div>
+                    <div class="field field--wide">
+                        <label for="res-notas">Notas o solicitudes especiales</label>
+                        <textarea class="control" id="res-notas" name="notas" rows="3" placeholder="Celebración de aniversario, mesa cerca del jardín…"></textarea>
+                    </div>
+
+                    <p class="form-status" id="form-status" role="status" hidden>Gracias. Recibimos su solicitud de reservación y el club se pondrá en contacto con usted a la brevedad.</p>
+
+                    <button type="submit" class="btn btn--block">Enviar solicitud</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="section site-footer tone-dark">
+        <div class="site-footer__layout">
+            <a class="brand" href="#inicio">
+                <span class="brand__mark" aria-hidden="true"></span>
+                Club Árabe Salvadoreño
+            </a>
+            <nav class="social" aria-label="Redes sociales">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="https://wa.me/50378020076">WhatsApp</a>
+            </nav>
+            <p class="legal">&copy; 2026 Club Árabe Salvadoreño. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            // ----- Filtro del menú: categoría + búsqueda trabajan juntas -----
+            var items = Array.prototype.slice.call(document.querySelectorAll('.menu-item'));
+            var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+            var search = document.getElementById('menu-search');
+            var empty = document.getElementById('menu-empty');
+            var category = 'all';
+
+            function normalize(text) {
+                return text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+            }
+
+            function applyFilters() {
+                var query = normalize(search.value.trim());
+                var visible = 0;
+
+                items.forEach(function (item) {
+                    var title = item.querySelector('.menu-item__title').textContent;
+                    var desc = item.querySelector('.menu-item__desc').textContent;
+                    var inCategory = category === 'all' || item.dataset.category === category;
+                    var inSearch = !query || normalize(title + ' ' + desc).indexOf(query) !== -1;
+                    var show = inCategory && inSearch;
+
+                    item.hidden = !show;
+                    if (show) { visible++; }
+                });
+
+                empty.hidden = visible > 0;
+            }
+
+            tabs.forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    category = tab.dataset.filter;
+                    tabs.forEach(function (t) {
+                        t.setAttribute('aria-pressed', String(t === tab));
+                    });
+                    applyFilters();
+                });
+            });
+
+            search.addEventListener('input', applyFilters);
+
+            // ----- Formulario de reservación -----
+            var form = document.getElementById('reservation-form');
+            var status = document.getElementById('form-status');
+            var dateInput = document.getElementById('res-fecha');
+
+            var now = new Date();
+            var pad = function (n) { return String(n).padStart(2, '0'); };
+            dateInput.min = now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate());
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                form.reset();
+                status.hidden = false;
+            });
+
+            form.addEventListener('input', function () {
+                status.hidden = true;
+            });
+        })();
+    </script>
+</body>
+</html>

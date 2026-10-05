@@ -1,0 +1,889 @@
+/* ==========================================================================
+   Club Árabe Salvadoreño — Hoja de estilos
+   Estilo minimalista y profesional. Distribución principal con CSS Grid.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Tokens
+   -------------------------------------------------------------------------- */
+:root {
+  /* Paleta original del sitio */
+  --navy: #0B131F;
+  --navy-2: #131E2F;
+  --navy-3: #1A283E;
+  --gold: #C5A059;
+  --gold-light: #E0C387;
+  --gold-dark: #9A7736;
+  --paper: #F4F6F9;
+  --muted: #94A3B8;
+  --emerald: #0E3A2F;
+
+  /* Tipografía */
+  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Medidas */
+  --max: 76rem;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --gap: clamp(1.25rem, 2.5vw, 2rem);
+  --header-h: 4.5rem;
+  --pad-y: clamp(4rem, 9vw, 7.5rem);
+
+  /* Rejilla de página: márgenes flexibles + columna central con nombre */
+  --page-cols:
+    [full-start] minmax(var(--gutter), 1fr)
+    [content-start] minmax(0, var(--max))
+    [content-end] minmax(var(--gutter), 1fr)
+    [full-end];
+}
+
+/* --------------------------------------------------------------------------
+   2. Temas por sección (alternan el contraste usando la misma paleta)
+   -------------------------------------------------------------------------- */
+.tone-dark {
+  --bg: var(--navy);
+  --fg: var(--paper);
+  --fg-soft: var(--muted);
+  --line: rgb(244 246 249 / 0.16);
+  --accent: var(--gold-light);
+  --btn-bg: var(--gold);
+  --btn-bg-hover: var(--gold-light);
+  --btn-fg: var(--navy);
+  --focus: var(--gold-light);
+}
+
+.tone-light {
+  --bg: var(--paper);
+  --fg: var(--navy);
+  --fg-soft: color-mix(in srgb, var(--navy) 72%, var(--paper));
+  --line: rgb(11 19 31 / 0.18);
+  --accent: var(--gold-dark);
+  --btn-bg: var(--navy);
+  --btn-bg-hover: var(--navy-3);
+  --btn-fg: var(--paper);
+  --focus: var(--gold-dark);
+}
+
+.tone-emerald {
+  --bg: var(--emerald);
+  --fg: var(--paper);
+  --fg-soft: color-mix(in srgb, var(--paper) 82%, var(--emerald));
+  --line: rgb(244 246 249 / 0.22);
+  --accent: var(--gold-light);
+  --btn-bg: var(--gold);
+  --btn-bg-hover: var(--gold-light);
+  --btn-fg: var(--navy);
+  --focus: var(--gold-light);
+}
+
+/* --------------------------------------------------------------------------
+   3. Base
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  min-height: 100svh;
+  background: var(--navy);
+  color: var(--paper);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  background: var(--navy-2);
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus, var(--gold));
+  outline-offset: 3px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   4. Estructura de página (Grid)
+   -------------------------------------------------------------------------- */
+.section {
+  display: grid;
+  grid-template-columns: var(--page-cols);
+  padding-block: var(--pad-y);
+  background: var(--bg);
+  color: var(--fg);
+  scroll-margin-top: var(--header-h);
+}
+
+.section > * {
+  grid-column: content;
+}
+
+/* Contenedor de 12 columnas, una sola columna en móvil */
+.split {
+  display: grid;
+  gap: 3rem var(--gap);
+}
+
+@media (min-width: 62.5rem) {
+  .split {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+
+/* Encabezados de sección */
+.section-head {
+  display: grid;
+  gap: 1.25rem;
+  align-content: start;
+}
+
+.section-head h2,
+.about__text h2 {
+  font-size: clamp(2rem, 1rem + 3.4vw, 3.25rem);
+  letter-spacing: -0.01em;
+}
+
+.section-head p {
+  max-width: 34rem;
+  color: var(--fg-soft);
+}
+
+/* --------------------------------------------------------------------------
+   5. Botones
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-grid;
+  place-items: center;
+  min-height: 2.75rem;
+  padding: 0.65rem 1.4rem;
+  border: 1px solid var(--btn-bg);
+  border-radius: 2px;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font: 600 0.9rem/1 var(--font-sans);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn:hover {
+  border-color: var(--btn-bg-hover);
+  background: var(--btn-bg-hover);
+}
+
+.btn--ghost {
+  border-color: var(--fg);
+  background: transparent;
+  color: var(--fg);
+}
+
+.btn--ghost:hover {
+  border-color: var(--fg);
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.btn--block {
+  width: 100%;
+  min-height: 3.1rem;
+}
+
+.actions {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  gap: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. Encabezado
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: var(--page-cols);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.site-header > * {
+  grid-column: content;
+}
+
+.site-header__bar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "brand nav cta";
+  align-items: center;
+  column-gap: var(--gap);
+  min-height: var(--header-h);
+}
+
+.brand {
+  grid-area: brand;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  justify-self: start;
+  align-items: center;
+  gap: 0.75rem;
+  color: inherit;
+  font: 500 1.2rem/1 var(--font-serif);
+  text-decoration: none;
+}
+
+.brand__mark {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  box-shadow: inset -0.4rem 0 0 0 var(--accent);
+}
+
+.site-nav {
+  grid-area: nav;
+}
+
+.site-nav ul {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  gap: 2.25rem;
+}
+
+.site-nav a {
+  display: block;
+  padding-block: 0.5rem;
+  border-bottom: 1px solid transparent;
+  color: var(--fg-soft);
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.site-nav a:hover {
+  border-bottom-color: var(--accent);
+  color: var(--fg);
+}
+
+.site-header .btn {
+  grid-area: cta;
+}
+
+@media (max-width: 56rem) {
+  :root {
+    --header-h: 6.5rem;
+  }
+
+  .site-header__bar {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "brand cta"
+      "nav   nav";
+    padding-top: 0.75rem;
+  }
+
+  .site-nav {
+    overflow-x: auto;
+  }
+
+  .site-nav ul {
+    justify-content: start;
+    gap: 1.1rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. Inicio
+   -------------------------------------------------------------------------- */
+.hero {
+  --pad-y: clamp(3rem, 7vw, 5.5rem) clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.hero__text {
+  display: grid;
+  gap: 1.75rem;
+  align-content: center;
+  justify-items: start;
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 1.2rem + 5.2vw, 4.9rem);
+  letter-spacing: -0.015em;
+  line-height: 1.04;
+}
+
+.lede {
+  max-width: 34rem;
+  color: var(--fg-soft);
+  font-size: 1.1rem;
+}
+
+.hero__media {
+  min-width: 0;
+}
+
+.hero__media img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.hero__facts {
+  display: grid;
+  gap: 1.5rem var(--gap);
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.hero__facts dt {
+  color: var(--fg-soft);
+  font-size: 0.85rem;
+}
+
+.hero__facts dd {
+  font-weight: 500;
+}
+
+@media (min-width: 40rem) {
+  .hero__facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 62.5rem) {
+  .hero__text {
+    grid-column: 1 / span 6;
+    grid-row: 1;
+  }
+
+  .hero__media {
+    grid-column: 8 / -1;
+    grid-row: 1;
+  }
+
+  .hero__media img {
+    aspect-ratio: 1 / 1;
+  }
+
+  .hero__facts {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: 1rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. Menú
+   -------------------------------------------------------------------------- */
+.menu__head {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.menu__controls {
+  display: grid;
+  gap: 1.5rem;
+  align-content: end;
+}
+
+.search {
+  display: grid;
+}
+
+.search input {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.5rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--fg);
+  border-radius: 0;
+  background: transparent;
+  color: var(--fg);
+  font: 400 1rem/1.4 var(--font-sans);
+}
+
+.search input::placeholder {
+  color: var(--fg-soft);
+  opacity: 1;
+}
+
+.tabs {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  gap: 1.5rem;
+}
+
+.tab {
+  justify-self: start;
+  padding: 0.5rem 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--fg-soft);
+  font: 500 0.95rem/1.3 var(--font-sans);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.tab:hover,
+.tab[aria-pressed="true"] {
+  color: var(--fg);
+}
+
+.tab[aria-pressed="true"] {
+  border-bottom-color: var(--accent);
+  font-weight: 600;
+}
+
+.menu__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr));
+  gap: 3.5rem var(--gap);
+}
+
+.menu-item {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.menu-item[hidden] {
+  display: none;
+}
+
+.menu-item__img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.menu-item__body {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "title price"
+    "desc  desc"
+    "tags  tags";
+  gap: 0.6rem 1rem;
+  padding-top: 1.25rem;
+}
+
+.menu-item__title {
+  grid-area: title;
+  font-size: 1.4rem;
+}
+
+.menu-item__price {
+  grid-area: price;
+  font: 600 1.25rem/1.3 var(--font-serif);
+  white-space: nowrap;
+}
+
+.menu-item__desc {
+  grid-area: desc;
+  color: var(--fg-soft);
+  font-size: 0.92rem;
+}
+
+.tags {
+  grid-area: tags;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+.tag {
+  padding: 0.2rem 0.65rem;
+  border: 1px solid var(--fg-soft);
+  border-radius: 2px;
+  color: var(--fg-soft);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.tag--accent {
+  border-color: var(--navy);
+  background: var(--navy);
+  color: var(--gold-light);
+}
+
+.menu__empty {
+  padding-block: 3rem;
+  color: var(--fg-soft);
+}
+
+@media (min-width: 62.5rem) {
+  .menu__intro {
+    grid-column: 1 / span 5;
+  }
+
+  .menu__controls {
+    grid-column: 7 / -1;
+  }
+}
+
+@media (max-width: 40rem) {
+  .tabs {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, max-content);
+    gap: 0.5rem 2rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. Historia
+   -------------------------------------------------------------------------- */
+.about__text {
+  display: grid;
+  gap: 1.5rem;
+  align-content: center;
+}
+
+.about__text p {
+  max-width: 34rem;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem var(--gap);
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.facts dt {
+  color: var(--fg-soft);
+  font-size: 0.85rem;
+}
+
+.facts dd {
+  font: 400 1.5rem/1.2 var(--font-serif);
+}
+
+.about__gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 9rem;
+  gap: 1rem;
+}
+
+.about__gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Composición escalonada de la galería */
+.about__gallery img:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.about__gallery img:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.about__gallery img:nth-child(3) {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.about__gallery img:nth-child(4) {
+  grid-column: 2;
+  grid-row: 2 / span 2;
+}
+
+@media (min-width: 62.5rem) {
+  .about__text {
+    grid-column: 1 / span 5;
+  }
+
+  .about__gallery {
+    grid-column: 7 / -1;
+    grid-auto-rows: 11rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   10. Instalaciones
+   -------------------------------------------------------------------------- */
+.amenities__list {
+  display: grid;
+  gap: 2.5rem var(--gap);
+}
+
+.amenity {
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--accent);
+}
+
+.amenity h3 {
+  font-size: 1.5rem;
+}
+
+.amenity p {
+  color: var(--fg-soft);
+  font-size: 0.95rem;
+}
+
+@media (min-width: 40rem) {
+  .amenities__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 62.5rem) {
+  .amenities__intro {
+    grid-column: 1 / span 4;
+  }
+
+  .amenities__list {
+    grid-column: 6 / -1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   11. Contáctenos
+   -------------------------------------------------------------------------- */
+.contact__info {
+  display: grid;
+  gap: 2.5rem;
+  align-content: start;
+}
+
+.contact-list > div {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding-block: 1.1rem;
+  border-top: 1px solid var(--line);
+}
+
+.contact-list > div:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.contact-list dt {
+  color: var(--fg-soft);
+  font-size: 0.9rem;
+}
+
+.contact-list a {
+  text-underline-offset: 0.25em;
+  transition: color 0.2s;
+}
+
+.contact-list a:hover {
+  color: var(--accent);
+}
+
+/* Formulario: panel claro sobre la sección oscura */
+.reservation {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem var(--gap);
+  align-content: start;
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.reservation h3 {
+  grid-column: 1 / -1;
+  margin-bottom: 0.5rem;
+  font-size: 1.9rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.field--wide,
+.form-status,
+.reservation .btn {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  color: var(--fg-soft);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.control {
+  width: 100%;
+  min-height: 2.9rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--fg-soft);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--fg);
+  font: 400 0.95rem/1.4 var(--font-sans);
+}
+
+.control::placeholder {
+  color: var(--fg-soft);
+  opacity: 1;
+}
+
+textarea.control {
+  resize: vertical;
+}
+
+.form-status {
+  padding: 0.9rem 1rem;
+  border-left: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--navy) 6%, var(--paper));
+  font-size: 0.92rem;
+}
+
+@media (min-width: 62.5rem) {
+  .contact__info {
+    grid-column: 1 / span 5;
+  }
+
+  .reservation {
+    grid-column: 7 / -1;
+  }
+}
+
+@media (max-width: 40rem) {
+  .reservation {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   12. Pie de página (va después de los temas para sustituir --bg)
+   -------------------------------------------------------------------------- */
+.site-footer {
+  --bg: var(--navy-2);
+  --pad-y: 3rem 2rem;
+}
+
+.site-footer__layout {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "brand  social"
+    "legal  legal";
+  align-items: center;
+  gap: 2rem var(--gap);
+}
+
+.site-footer .brand {
+  grid-area: brand;
+}
+
+.social {
+  grid-area: social;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 1.5rem;
+}
+
+.social a {
+  padding-block: 0.4rem;
+  border-bottom: 1px solid transparent;
+  color: var(--fg-soft);
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.social a:hover {
+  border-bottom-color: var(--accent);
+  color: var(--fg);
+}
+
+.legal {
+  grid-area: legal;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--fg-soft);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 40rem) {
+  .site-footer__layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "brand"
+      "social"
+      "legal";
+  }
+}
